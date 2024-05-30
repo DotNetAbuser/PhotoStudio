@@ -1,0 +1,117 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\obj\\Debug\\net8.0\\compressed\\1tb7dn4v8i.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Client.styles.css",
+      "PackagePath": "staticwebassets\\Client.styles.css"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\css\\app.css",
+      "PackagePath": "staticwebassets\\assets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\css\\styles.css",
+      "PackagePath": "staticwebassets\\assets\\css\\styles.css"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\about-img.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\about-img.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\about-img.svg",
+      "PackagePath": "staticwebassets\\assets\\images\\about-img.svg"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\blog1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\blog1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\blog2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\blog2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\blog3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\blog3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\blog4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\blog4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\blog5.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\blog5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\blog6.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\blog6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\header.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\header.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\insta-1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\insta-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\insta-2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\insta-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\insta-3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\insta-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\insta-4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\insta-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\photographer.png",
+      "PackagePath": "staticwebassets\\assets\\images\\photographer.png"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\porject-1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\porject-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\porject-2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\porject-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\assets\\images\\project-main.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\project-main.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Users\\ilyao\\Desktop\\Projects\\PhotoStudioService\\Frontend\\Src\\Client\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Client.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Client.props",
+      "PackagePath": "build\\Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Client.props",
+      "PackagePath": "buildMultiTargeting\\Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Client.props",
+      "PackagePath": "buildTransitive\\Client.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

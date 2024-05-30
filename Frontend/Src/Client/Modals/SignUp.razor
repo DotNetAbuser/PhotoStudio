@@ -1,0 +1,56 @@
+﻿@page "/sign-up"
+
+<div class="contact-bottom">
+    <EditForm Model="_request" OnValidSubmit="SubmitFormAsync" class="form">
+        <DataAnnotationsValidator/>
+        <header>Регистрация</header>
+        <InputText type="text" @bind-Value="_request.LastName" placeholder="Фамилия"/>
+        <InputText type="text" @bind-Value="_request.FirstName" placeholder="Имя"/>
+        <InputText type="text" @bind-Value="_request.MiddleName" placeholder="Отчество"/>
+
+        <InputText type="text" @bind-Value="_request.Email" placeholder="Электронная почта"/>
+
+        <InputText type="text" @bind-Value="_request.PhoneNumber" placeholder="Номер телефона"/>
+        <InputText type="text" @bind-Value="_request.Password" placeholder="Пароль"/>
+        <ValidationSummary/>
+        <input type="submit" class="btn" value="Зарегистрироваться"/>
+    </EditForm>
+</div>
+
+
+@code {
+    [Inject] IJSRuntime JsRuntime { get; set; } = default!;
+    [Inject] IUserManager UserManager { get; set; } = default!;
+    [Inject] NavigationManager NavigationManager { get; set; } = default!;
+    
+    private bool _isBusy;
+    private SignUpRequest _request = new();
+
+    private async Task SubmitFormAsync()
+    {
+        try
+        {
+            _isBusy = true;
+            
+            var result = await UserManager.CreateAsync(_request);
+            if (!result.Succeeded)
+            {
+                foreach(var message in result.Messages)
+                    await JsRuntime.InvokeVoidAsync("alert", message);
+                return;
+            }
+            foreach(var message in result.Messages)
+                await JsRuntime.InvokeVoidAsync("alert", message);
+            NavigationManager.NavigateTo("/", true, true);
+        }
+        catch (Exception ex)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+        }
+        finally
+        {
+            _isBusy = false;
+        }
+    }
+    
+}

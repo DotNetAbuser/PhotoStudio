@@ -1,0 +1,22 @@
+﻿@inherits LayoutComponentBase
+<CascadingAuthenticationState>
+    <CascadingBlazoredModal OverlayCustomClass="custom-modal-overlay">
+        <!-- header -->
+        <header class="header">
+            <NavBar/>
+        </header>
+        <!-- end of header -->
+
+        <main>
+            <article>
+                @Body
+            </article>
+        </main>
+
+        <!-- footer -->
+        <footer class="footer">
+            <FooterBar/>
+        </footer>
+        <!-- end of footer -->
+    </CascadingBlazoredModal>
+</CascadingAuthenticationState>

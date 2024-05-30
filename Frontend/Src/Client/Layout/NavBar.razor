@@ -1,0 +1,76 @@
+﻿@using Client.Modals
+<div class="nav-section">
+    <div class="brand-and-navBtn">
+        <span class="brand-name">
+            PhotoStudio
+        </span>
+        <span @onclick="ChangeNavBarState" class="navBtn flex">
+            <i class="fas fa-bars"></i>
+        </span>
+    </div>
+
+
+    <!-- navigation menu -->
+    <nav class="@_navBarStateClass">
+        <ul>
+            <li><a href="">Главная</a></li>
+            <li><a href="#gallery">Галлерея</a></li>
+            <li><a href="#contact">Контакты</a></li>
+            <AuthorizeView>
+                <NotAuthorized>
+                    <li><a @onclick="ShowSignInModal">Войти</a></li>
+                    <li><a @onclick="ShowSignUpModal">Регистрация</a></li>
+                </NotAuthorized>
+                <Authorized>
+                    <li><a @onclick="ShowSendRequestModal">Запись</a></li>
+                    <li><a @onclick="SignOutAsync">Выйти</a></li>
+                </Authorized>
+            </AuthorizeView>
+        </ul>
+    </nav>
+</div>
+<div class="container about">
+    <div class="about-content">
+        <div class="about-img flex">
+            <img src="./assets/images/about-img.jpg" alt="photographer img">
+        </div>
+        <h2>PhotoStudio</h2>
+        <h3>Фото студия 10 лет на рынке</h3>
+        <blockquote>
+            Фотография – это способ чувствовать, прикасаться, любить.
+            То, что вы запечатлели на пленку, запечатлено навсегда...
+            Оно помнит мелочи, даже когда вы все забыли.
+            <span>-Аарон Сискинд</span>
+        </blockquote>
+    </div>
+</div>
+
+@code{
+    [Inject] NavigationManager NavigationManager { get; set; } = default!;
+    [Inject] CustomAuthStateProvider CustomAuthStateProvider { get; set; } = default!;
+    [CascadingParameter] IModalService ModalService { get; set; } = default!;
+    
+    private const string NavBarClass = "top-nav";
+    private const string NavBarActiveClass = "top-nav showNav";
+
+    private string _navBarStateClass = NavBarClass;
+    
+    private void ChangeNavBarState() =>
+        _navBarStateClass = _navBarStateClass == NavBarClass ? NavBarActiveClass : NavBarClass;
+
+    private void ShowSignInModal() =>
+        ModalService.Show<SignIn>();
+
+    private void ShowSignUpModal() =>
+        ModalService.Show<SignUp>();
+
+    private void ShowSendRequestModal() =>
+        ModalService.Show<SendRequest>();
+        
+    
+    private async Task SignOutAsync()
+    {
+        await CustomAuthStateProvider.MarkUserAsLoggedOut();
+        NavigationManager.NavigateTo("/", true, true);
+    }
+}

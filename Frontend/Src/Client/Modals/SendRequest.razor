@@ -1,0 +1,54 @@
+﻿@page "/send-request"
+@using Infrastructure.Services
+
+<PageTitle>Связь с нами</PageTitle>
+
+<!-- main -->
+<div class="contact-bottom">
+    <EditForm class="form" Model="_request" OnValidSubmit="SubmitFormAsync">
+        <header>Отправка заявки на посещение</header>
+        <InputDate @bind-Value="_request.Arrived" placeholder="Дата посещения" Type="InputDateType.DateTimeLocal"/>
+        <InputTextArea @bind-Value="_request.Message" placeholder="Комментарий"/>
+        <input type="submit" class="btn" value="Отправить заявку">
+    </EditForm>
+</div>
+<!-- end of main -->
+
+@code{
+    [Inject] IJSRuntime JsRuntime { get; set; } = default!;
+    [Inject] IOrderManager OrderManager { get; set; } = default!;
+    [Inject] ITokenService TokenService { get; set; } = default!;
+    [Inject] NavigationManager NavigationManager { get; set; } = default!;
+    
+    private bool _isBusy;
+    private CreateOrderRequest _request = new();
+
+    private async Task SubmitFormAsync()
+    {
+        try
+        {
+            _isBusy = true;
+            var token = await TokenService.GetAuthTokenAsync();
+            _request.UserId = Guid.Parse(TokenService.GetUserIdFromAuthToken(token));
+            var result = await OrderManager.CreateAsync(_request);
+            if (!result.Succeeded)
+            {
+                foreach(var message in result.Messages)
+                    await JsRuntime.InvokeVoidAsync("alert", message);
+                return;
+            }
+            foreach(var message in result.Messages)
+                await JsRuntime.InvokeVoidAsync("alert", message);
+            NavigationManager.NavigateTo("/", true, true);
+        }
+        catch (Exception ex)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+        }
+        finally
+        {
+            _isBusy = false;
+        }
+    }
+
+}
