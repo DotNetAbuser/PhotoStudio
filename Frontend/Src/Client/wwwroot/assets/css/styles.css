@@ -536,7 +536,21 @@ blockquote span{
 
 /******************* end of footer ****************/
 
+/* Float four columns side by side */
+.column {
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+}
 
+/* Style the counter cards */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    margin: 10px;
+    text-align: center;
+    background-color: #f1f1f1;
+}
 
 /***************** Media Queries *****************/
 
@@ -716,5 +730,13 @@ blockquote span{
     .work-imgs{
         grid-template-columns: 1fr;
         grid-row-gap: 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
     }
 }

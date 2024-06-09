@@ -39,8 +39,8 @@ public class UserConfiguration
             {
                 Id = Guid.NewGuid(),
                 RoleId = (int)Role.Operator,
-                LastName = "Устюшкин",
-                FirstName = "Даниил",
+                LastName = "Хасипов",
+                FirstName = "Самат",
                 MiddleName = "Оператор",
                 Email = "samatoperator@gmail.com",
                 PhoneNumber = "+791234567891",
@@ -50,8 +50,8 @@ public class UserConfiguration
             {
                 Id = Guid.NewGuid(),
                 RoleId = (int)Role.Admin,
-                LastName = "Устюшкин",
-                FirstName = "Даниил",
+                LastName = "Хасипов",
+                FirstName = "Самат",
                 MiddleName = "Админ",
                 Email = "samatadmin@gmail.com",
                 PhoneNumber = "+791234567892",

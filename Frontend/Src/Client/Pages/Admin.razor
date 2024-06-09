@@ -1,0 +1,106 @@
+﻿@page "/admin"
+
+<div style="display: flex; justify-content: center">
+    <h1 style="font-size: 30px; font-weight: 600;">Заявки на посещение фотостудии</h1>
+</div>
+<!--Requests-->
+<section class = "section-three" style="margin: 0">
+    <div class = "container">
+        <div class="gallery">
+            @foreach (var item in _ordersList)
+            {
+                <div class="column">
+                    <div class="card">
+                        <h3>ФИО: @item.LastName @item.FirstName @item.MiddleName</h3>
+                        <p>Эл. почта: @item.Email</p>
+                        <p>Номер телефона: @item.PhoneNumber</p>
+                        <p>Записан на: @item.Arrived.ToLocalTime().ToString("dd.MM.yyyy HH:mm")</p>
+                        <p>Создана: @item.Created.ToLocalTime().ToString("dd.MM.yyyy HH:mm")</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+        @if (_ordersList.Count < _totalCount)
+        {
+                <button  class="btn" @onclick="GetNextDataOrdersAsync">Показать ещё</button>
+        }
+
+</section>
+
+@code {
+    
+    [Inject] IJSRuntime JsRuntime { get; set; } = default!;
+    [Inject] IOrderManager OrderManager { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        await LoadDataOrdersAsync();
+    }
+
+    private bool _isBusy;
+    private List<OrderResponse> _ordersList = [];
+
+    private int _pageNumber = 1;
+    private int _pageSize = 6;
+
+    private int _totalCount;
+    
+    private async Task LoadDataOrdersAsync()
+    {
+        try
+        {
+            _isBusy = true;
+
+            var result = await OrderManager.GetPaginatedOrders(_pageNumber, _pageSize);
+            if (!result.Succeeded)
+            {
+                foreach(var message in result.Messages)
+                    await JsRuntime.InvokeVoidAsync("alert", message);
+                return;
+            }
+            foreach(var order in result.Data.List)
+                _ordersList.Add(order);
+            _totalCount = result.Data.TotalCount;
+        }
+        catch (Exception ex)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+        }
+        finally
+        {
+            _isBusy = false;
+        }
+    }
+    
+    private async Task GetNextDataOrdersAsync()
+    {
+        try
+        {
+            _isBusy = true;
+
+            _pageNumber += 1;
+            
+            var result = await OrderManager.GetPaginatedOrders(_pageNumber, _pageSize);
+            if (!result.Succeeded)
+            {
+                foreach(var message in result.Messages)
+                    await JsRuntime.InvokeVoidAsync("alert", message);
+                return;
+            }
+            foreach(var order in result.Data.List)
+                _ordersList.Add(order);
+            _totalCount = result.Data.TotalCount;
+        }
+        catch (Exception ex)
+        {
+            await JsRuntime.InvokeVoidAsync("alert", ex.Message);
+        }
+        finally
+        {
+            _isBusy = false;
+        }
+    }
+
+}
